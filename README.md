@@ -56,10 +56,6 @@ To update Zabbix to the latest version using Helm, follow these steps:
      --version $ZABBIX_CHART_VERSION \
      -n monitoring \
      --reuse-values \
-     --set postgresql.persistence.enabled=true \
-     --set postgresql.persistence.storageSize=10Gi \
-     --set ingressRoute.enabled=true \
-     --set ingressRoute.hostName=$HOST \
      --debug
    ```
 
