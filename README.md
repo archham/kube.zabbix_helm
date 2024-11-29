@@ -16,7 +16,7 @@ HOST=mon.domain.tld
 
 helm repo add zabbix-community https://zabbix-community.github.io/helm-zabbix
 helm search repo zabbix-community/zabbix -l
-export ZABBIX_CHART_VERSION='6.0.0'
+export ZABBIX_CHART_VERSION='5.0.2'
 
 helm upgrade --install zabbix zabbix-community/zabbix  \
   --dependency-update \
@@ -46,7 +46,7 @@ To update Zabbix to the latest version using Helm, follow these steps:
 
    ```bash
    helm search repo zabbix-community/zabbix -l
-   export ZABBIX_CHART_VERSION='6.0.0'  # Replace with the latest version
+   export ZABBIX_CHART_VERSION='5.0.2'  # Replace with the latest version
    ```
 
 3. Upgrade your existing Zabbix installation:
