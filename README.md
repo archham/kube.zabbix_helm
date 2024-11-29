@@ -16,7 +16,7 @@ HOST=mon.domain.tld
 
 helm repo add zabbix-community https://zabbix-community.github.io/helm-zabbix
 helm search repo zabbix-community/zabbix -l
-export ZABBIX_CHART_VERSION='5.0.2'
+export ZABBIX_CHART_VERSION='6.0.0'
 
 helm upgrade --install zabbix zabbix-community/zabbix  \
   --dependency-update \
@@ -31,6 +31,39 @@ helm upgrade --install zabbix zabbix-community/zabbix  \
   --debug
 
 kubectl get pv
+
+## Update Zabbix
+
+To update Zabbix to the latest version using Helm, follow these steps:
+
+1. Update the Helm repository to ensure you have the latest chart versions:
+
+   ```bash
+   helm repo update
+   ```
+
+2. Set the desired Zabbix chart version. You can find the latest version by searching the Helm repository:
+
+   ```bash
+   helm search repo zabbix-community/zabbix -l
+   export ZABBIX_CHART_VERSION='6.0.0'  # Replace with the latest version
+   ```
+
+3. Upgrade your existing Zabbix installation:
+
+   ```bash
+   helm upgrade zabbix zabbix-community/zabbix \
+     --version $ZABBIX_CHART_VERSION \
+     -n monitoring \
+     --reuse-values \
+     --set postgresql.persistence.enabled=true \
+     --set postgresql.persistence.storageSize=10Gi \
+     --set ingressRoute.enabled=true \
+     --set ingressRoute.hostName=$HOST \
+     --debug
+   ```
+
+   The `--reuse-values` flag ensures that your current configuration is retained during the upgrade.
 ```
 
 ## Uninstal Zabbix
