@@ -16,21 +16,27 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: user
-                    name: zabbixdb-pguser-zabbix
+                    name: zabbixdb-db-access
               - name: POSTGRES_PASSWORD
                 valueFrom:
                   secretKeyRef:
                     key: password
-                    name: zabbixdb-pguser-zabbix
+                    name: zabbixdb-db-access
               - name: POSTGRES_DB
                 valueFrom:
                   secretKeyRef:
                     key: dbname
-                    name: zabbixdb-pguser-zabbix
+                    name: zabbixdb-db-access
               - name: DB_SERVER_HOST
-                value: zabbix-postgresql
+                valueFrom:
+                  secretKeyRef:
+                    key: host
+                    name: zabbixdb-db-access
               - name: DB_SERVER_PORT
-                value: "5432"
+                valueFrom:
+                  secretKeyRef:
+                    key: port
+                    name: zabbixdb-db-access
             volumeMounts:
               - name: backup-storage
                 mountPath: /backups
