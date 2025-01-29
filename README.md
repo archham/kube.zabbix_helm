@@ -63,7 +63,7 @@ To update Zabbix to the latest version using Helm, follow these steps:
 ```
 
 ## Manual route settings
-```
+```bash
 kubectl create ingress ingress-www --rule=$HOST/*=zabbix-zabbix-web:80
 ```
 
