@@ -62,6 +62,11 @@ To update Zabbix to the latest version using Helm, follow these steps:
    The `--reuse-values` flag ensures that your current configuration is retained during the upgrade.
 ```
 
+## Manual route settings
+```
+kubectl create ingress ingress-www --rule=$HOST/*=zabbix-zabbix-web:80
+```
+
 ## Uninstal Zabbix
 ```bash
 helm uninstall zabbix -n monitoring
