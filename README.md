@@ -31,7 +31,7 @@ helm upgrade --install zabbix zabbix-community/zabbix  \
   --debug
 
 kubectl get pv
-
+```
 ## Update Zabbix
 
 To update Zabbix to the latest version using Helm, follow these steps:
