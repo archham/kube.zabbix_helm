@@ -60,10 +60,9 @@ To update Zabbix to the latest version using Helm, follow these steps:
    ```
 
    The `--reuse-values` flag ensures that your current configuration is retained during the upgrade.
-```
+   ```
 
 ## Manual route settings
-
 ```bash
 kubectl create ingress ingress-www --rule=$HOST/*=zabbix-zabbix-web:80
 ```
